@@ -1,0 +1,64 @@
+# 操作系统生成文件
+.DS_Store
+Thumbs.db
+*.lnk
+
+# 编辑器/IDE 文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+
+# 日志和临时文件
+*.log
+*.tmp
+*.bak
+*.pid
+
+# 依赖目录
+node_modules/
+bower_components/
+vendor/
+.pnpm-store/
+
+# 编译输出
+dist/
+build/
+out/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Installer logs
+pip-log.txt
+
+# Unit test reports
+htmlcov/
+.coverage
+
+# Dependency directories
+node_modules/
+
+# Build files
+dist/
+.next/
+out/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+
+# Environment variables
+.env
+.env.local

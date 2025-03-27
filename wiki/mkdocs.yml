@@ -1,0 +1,60 @@
+site_name: BeingDigital
+site_url: https://www.beingdigital.cn/wiki
+theme:
+  name: material
+  font:
+    code: Red Hat Mono
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  palette: 
+    # 浅色模式配置
+    - scheme: default
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-7  # 太阳图标
+        name: 切换到深色模式
+
+    # 深色模式配置
+    - scheme: slate
+      primary: deep orange
+      toggle:
+        icon: material/brightness-4  # 月亮图标
+        name: 切换到浅色模式
+
+  features:
+    - navigation.footer
+
+
+
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+  - admonition
+  - pymdownx.details
+
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: material/web
+      link: https://www.beingdigital.cn
+    - icon: material/wechat
+      link: https://work.weixin.qq.com/ca/cawcde02144bef3ae1
+copyright: |
+    Copyright © <script>document.write(new Date().getFullYear())</script> BeingDigital Co., Ltd.<br>
+    All rights reserved. 保留所有权利。Protected under the laws of the People's Republic of China and international copyright conventions.
