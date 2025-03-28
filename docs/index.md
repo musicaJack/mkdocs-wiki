@@ -1,61 +1,58 @@
 ---
-title: 嵌入式系统架构设计
+title: The Design of Open Architecture
 ---
 
-# 嵌入式系统架构设计
+# 系统架构设计
 
 ## 核心架构设计
 
-### 程序模块架构
+### MVCS层次架构图
 
 ```mermaid
-%% 主程序架构图
-flowchart TD
-    subgraph 应用层
-        MA[["Main Application<br/>系统调度中枢"]] --> HC
-        MA --> IH
-    end
-
-    subgraph 硬件抽象层
-        HC[["HardwareController<br/>硬件驱动管理"]] --> DC
-        HC --> SM
-        HC --> GP
-        HC --> CH
-    end
-
-    subgraph 系统服务层
-        DC[["DisplayController<br/>双缓冲渲染引擎"]] -->|区域更新通知| TE
-        DC -->|字体服务| TE
-        SM[["SensorManager<br/>环境数据采集"]] -->|数据格式化| DC
-        GP[["GNSSProcessor<br/>坐标转换服务"]] -->|WGS84/百度坐标| CH
-    end
-
-    subgraph 通信层
-        CH[["CommunicationHandler<br/>MQTT消息代理"]] -->|编解码| MA
-    end
-
-    subgraph 输入层
-        IH[["InputHandler<br/>事件分发中心"]] -->|标准化指令| TE
-        IH -->|控制指令| MA
-    end
-
-    subgraph 功能模块
-        TE[["TextEditor<br/>富文本编辑器"]] -->|双缓冲渲染| DC
-    end
-
-    classDef appLayer fill:#673AB7,stroke:#B39DDB,color:#ffffff;
-    classDef hardwareLayer fill:#1976D2,stroke:#90CAF9,color:#ffffff;
-    classDef serviceLayer fill:#388E3C,stroke:#81C784,color:#ffffff;
-    classDef module fill:#8E24AA,stroke:#CE93D8,color:#ffffff;
-
-    class MA,IH appLayer;
-    class HC,CH hardwareLayer;
-    class DC,SM,GP serviceLayer;
-    class TE module;
+graph TD
+    A[Model层] --> B[传感器数据]
+    A --> C[GNSS数据]
+    A --> D[系统状态]
+    
+    E[View层] --> F[文字/图形展现器-UI]
+    E --> G[传感器仪表盘-UI]
+    E --> H[GPS定位界面-UI]
+    
+    I[Controller层] --> J[输入处理]
+    I --> K[数据采集]
+    I --> L[通信管理]
+    
+    M[Service层] --> N[文件存储]
+    M --> O[网络通信]
+    M --> P[硬件驱动]
+    
+    B -->|通知| E
+    J -->|事件| I
+    L -->|调用| M
+    P -->|数据| A
 ```
-## 依赖关系
-###Main Application 协调所有核心模块
-###HardwareController 提供硬件抽象层
-###DisplayController 作为显示服务中枢
-###各功能模块通过 DisplayController 输出内容
-###箭头方向表示服务依赖关系
+### 基于MVCS架构的层次映射方案
+=== "Model层（**数据核心**）"
+    - MessageModel：硬件日志、参数配置等核心数据
+    - HWCheckModel: 硬件健康状态检测
+    -  SensorModel：封装温湿度原始数据及其校准算法
+    -    GNSSModel：处理GNSS坐标原始数据及坐标系转换逻辑
+    -    CommModel：维护网络连接状态和MQTT/HTTP/HTTPS
+=== "View层（**显示系统**）"
+    -   DisplayView：整合双缓冲机制和区域渲染策略
+    - StatusBarView：信号强度、时间等系统状态显示
+    -    ConfigView：设备配置界面的可视化呈现
+    -    SensorView：温湿度数据的图形化展示
+    -      GNSSView: GNSS数据的图形化展示
+=== "Controller层（**业务逻辑**）"
+    -  InputController：整合键盘/UART输入处理
+    - SensorController：协调传感器数据采集周期
+    -   GNSSController：管理定位数据更新策略
+    -   CommController：处理消息编解码与QoS策略
+    - RenderController：调度显示刷新与动画过渡
+=== "Service层（**底层通讯服务**）"
+    -    FileService：文件读写操作
+    - NetworkService：MQTT/HTTP/HTTPS连接管理
+    -  SensorService：传感器驱动封装
+    -    GNSSService：GNSS定位模块通信协议
+    -  DeviceManager: 统一管理硬件资源分配/提供硬件访问的标准化接口
