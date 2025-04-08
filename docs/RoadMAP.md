@@ -239,7 +239,7 @@
            Hardware Abstraction → RTOS Kernel → MVCS Framework → Application Layer<br>
            ▪ 模块化接口定义：<br>
             &nbsp;- &nbsp;硬件抽象规范<br>
-            &nbsp;- &nbsp;软件API统一<br>
+            &nbsp;- &nbsp;平台API规划<br>
       </div>
     </div>
 
