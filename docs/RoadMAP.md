@@ -214,11 +214,11 @@
     </div>
     <!-- 新增图片展示区 -->
     <div class="product-images">
-        <img src="/wiki/assets/mvp-prototype1.jpg"
+        <img src="/wiki/assets/mvp-prototype1.webp"
           alt="MVP原型机实物2"
           class="product-image"
           title="采用RP2040主控的工程样机">
-        <img src="/wiki/assets/location_track.png"
+        <img src="/wiki/assets/location_track.webp"
           alt="轨迹回放"
           class="product-image"
           title="采用RP2040主控的工程样机">
