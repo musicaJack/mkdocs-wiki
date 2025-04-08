@@ -116,7 +116,28 @@
   font-size: 0.9em;
 }
 
+/*新增图片样式*/
+.product-images {
+  margin: 25px 0;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.product-image {
+  flex: 1 1 300px;
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 @media (max-width: 768px) {
+   .product-images {
+    flex-direction: column;
+  }
+  .product-image {
+    flex: 1 1 auto;
+  }
   .phase-card {
     width: 90%;
     margin: 30px auto !important;
@@ -190,6 +211,17 @@
            ▪ 尝试通过标准接口接入外设(I2C、串口)<br>
            ▪ 0.96寸OLED驱动框架验证</p>
       </div>
+    </div>
+    <!-- 新增图片展示区 -->
+    <div class="product-images">
+        <img src="/wiki/assets/mvp-prototype1.jpg"
+          alt="MVP原型机实物2"
+          class="product-image"
+          title="采用RP2040主控的工程样机">
+        <img src="/wiki/assets/location_track.png"
+          alt="轨迹回放"
+          class="product-image"
+          title="采用RP2040主控的工程样机">
     </div>
   </div>
 
