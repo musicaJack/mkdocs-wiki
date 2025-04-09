@@ -217,11 +217,11 @@
         <img src="/wiki/assets/mvp-prototype1.webp"
           alt="MVP原型机实物2"
           class="product-image"
-          title="采用RP2040主控的工程样机">
+          title="采用RP2040主控的原型机">
         <img src="/wiki/assets/location_track.webp"
           alt="轨迹回放"
           class="product-image"
-          title="采用RP2040主控的工程样机">
+          title="采用RP2040主控的原型机">
     </div>
   </div>
 
@@ -249,10 +249,25 @@
       <div class="tech-detail">
         <p>▪ 8台工程样机制作<br>
            ▪ 环境可靠性测试：<br>
-           &nbsp;&nbsp;- 25℃/60%RH 72小时老化<br>
-           &nbsp;&nbsp;- 多场景信号测试<br>
+           &nbsp;&nbsp;25℃/60%RH 72小时烤机<br>
+           &nbsp;&nbsp;多场景信号测试<br>
            <span class="tech-highlight" style="background:#FFEBEE;">EMI/EMC预认证</span></p>
       </div>
+    </div>
+        <!-- 新增图片展示区 -->
+    <div class="product-images">
+        <img src="/wiki/assets/pcb_design.webp"
+          alt="PCB主板样机"
+          class="product-image"
+          title="PCB主板样机">
+        <img src="/wiki/assets/prototype-gps.webp"
+          alt="PCB主板样机接GPS模块"
+          class="product-image"
+          title="PCB主板样机接GPS模块">
+        <img src="/wiki/assets/prototype-full-load.webp"
+          alt="PCB主板样机接LED和温湿度模块"
+          class="product-image"
+          title="PCB主板样机接LED和温湿度模块">
     </div>
   </div>
 
