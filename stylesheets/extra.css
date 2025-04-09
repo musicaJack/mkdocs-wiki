@@ -1,0 +1,76 @@
+/* ================= 全局Mermaid配置 ================= */
+:root {
+  /* 新增文本颜色变量 */
+  --mermaid-text-color: #ffffff; /* 强制纯白文字 */
+}
+
+.mermaid {
+  /* 强化文本颜色控制 */
+  text, tspan, .node text, .edgeLabel text {
+    fill: var(--mermaid-text-color) !important;
+    color: var(--mermaid-text-color) !important;
+    font-family: var(--md-text-font) !important;
+    font-weight: 500 !important; /* 提升可读性 */
+  }
+
+  /* 优化节点边框渲染 */
+  rect, polygon {
+    stroke-linejoin: round;
+    stroke-width: 1.2px;
+  }
+}
+
+/* ================= 明暗模式增强 ================= */
+[data-md-color-scheme="default"] {
+  /* 保持原有颜色定义 */
+  --app-layer: #673AB7;
+  --app-layer-stroke: #B39DDB;
+  --hardware-layer: #1976D2;
+  --hardware-layer-stroke: #90CAF9;
+  --service-layer: #388E3C;
+  --service-layer-stroke: #81C784;
+  --module-layer: #8E24AA;
+  --module-layer-stroke: #CE93D8;
+  
+  /* 新增浅色模式文字阴影 */
+  .mermaid text {
+    filter: drop-shadow(0.5px 0.5px 0.5px rgba(0,0,0,0.3));
+  }
+}
+
+[data-md-color-scheme="slate"] {
+  /* 微调深色模式颜色 */
+  --app-layer: #9575CD;
+  --app-layer-stroke: #7E57C2;
+  --hardware-layer: #64B5F6;
+  --hardware-layer-stroke: #42A5F5;
+  --service-layer: #81C784;
+  --service-layer-stroke: #66BB6A;
+  --module-layer: #BA68C8;
+  --module-layer-stroke: #AB47BC;
+  
+  /* 深色模式文字发光效果 */
+  .mermaid text {
+    filter: drop-shadow(0 0 0.8px rgba(255,255,255,0.4));
+  }
+}
+
+/* ================= 移动端优化补丁 ================= */
+@media screen and (max-width: 768px) {
+  .mermaid {
+    zoom: 0.9 !important; /* 适当放大显示 */
+    font-size: 15px !important;
+    
+    /* 移动端隐藏复杂装饰 */
+    .edgeLabel tspan {
+      display: none;
+    }
+  }
+}
+
+/* 页脚版权信息排版优化 */
+.md-footer-copyright {
+  line-height: 1.5;
+  font-size: 0.8em;
+  opacity: 0.9;
+}
