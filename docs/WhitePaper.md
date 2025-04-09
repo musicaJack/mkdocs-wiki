@@ -4,7 +4,6 @@ title: BeingDigital © The Open Architecture IoT Platform Technical White Paper
 # 开放式 IoT 平台架构 - 技术白皮书
 
 > ​**科技驱动未来 · 开放赋能创新**  
-> *更新时间：2025-03-31 | 版本：v0.1 |*
 
 <div align="center">
  
